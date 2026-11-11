@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Call random Generator
+      - name: ChrisL_Random Number Generator
         id: custom_rng
-        uses: ./.github/actions/random-generator
+        uses: chrislambwork139/TestMarketPlace@v1.1
         with:
-          user-name: 'Billy Bob'
+          user-name: 'Billy Bob from my marketplace'
       - name: use the returned number
         run: |
           echo "The composite action successfully returned the number: ${{ steps.custom_rng.outputs.generated_number }}"
