@@ -1,0 +1,16 @@
+name: 2-Test Composite Action
+
+on:
+  workflow_dispatch:
+
+  jobs:
+    run-custom-action:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+        - name: Call random Generator
+          id: custom_rng
+          uses: ./.github/actions/random-generator
+          with:
+            user-name: 'Billy Bob'
