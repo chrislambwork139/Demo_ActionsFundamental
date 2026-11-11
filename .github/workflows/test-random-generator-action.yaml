@@ -16,4 +16,4 @@ jobs:
           user-name: 'Billy Bob'
       - name: use the returned number
         run: |
-          echo "The composite action successfully returned the number: ${{ steps.custom_rng.outputs.generated-number }}"
+          echo "The composite action successfully returned the number: ${{ steps.custom_rng.outputs.generated_number }}"
