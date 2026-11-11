@@ -22,7 +22,6 @@ jobs:
       - run: |
           echo "🎉 The job was triggered by event: ${{ github.event_name }}"
           echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ."
-          echo "actor: " ${{github.actor}}
 
       - uses: actions/checkout@v3.3.0
 
@@ -30,3 +29,17 @@ jobs:
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
+      - name: Test Log levels
+        run: |
+          echo "::warning This is a code warning"
+          echo "::error This is a code error"
+  deploy:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Value
+        id: generator
+        run: "build_id=12345"
+      - name: User Value
+        run: echo "The Build ID is ${{ steps.generator.outputs.build_id }}'
+      
